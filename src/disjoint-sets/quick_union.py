@@ -11,10 +11,9 @@ class QuickUnion:
             self._array[y_root] = x_root
 
     def find(self, x):
-        if x == self._array[x]:
-            return x
-        self._array[x] = self.find(self._array[x])
-        return self._array[x]
+        while x != self._array[x]:
+            x = self._array[x]
+        return x
 
     def check(self, x, y):
         return self.find(x) == self.find(y)
